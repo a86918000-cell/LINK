@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>今明 — 玻璃雨夜 Landing</title>
+<title>今明 — 鏈接集結</title>
 <style>
   :root{
-    --bg-image: url("https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6e2d6d87c7a7b3f830d5b5f2b1b3f4e6");
+    --bg-image: url("https://cdn.pixabay.com/photo/2024/01/29/06/46/night-8538954_1280.jpg");
     --glass-color: rgba(255,255,255,0.06);
     --accent: rgba(255,255,255,0.95);
     --muted: rgba(255,255,255,0.65);
@@ -46,7 +46,7 @@
     background-size:cover;
     background-position:center center;
     transform: scale(1.05); /* 微放大，讓邊緣更模糊 */
-    filter: blur(6px) brightness(0.6) saturate(1.1);
+    filter: blur(1px) brightness(0.6) saturate(1.1);
     will-change: transform;
     z-index:0;
   }
@@ -75,7 +75,7 @@
     box-sizing:border-box;
     background: linear-gradient(180deg, rgba(255,255,255,0.00), rgba(255,255,255,0.02));
     backdrop-filter: blur(10px) saturate(1.05);
-    -webkit-backdrop-filter: blur(10px) saturate(1.05);
+    -webkit-backdrop-filter: blur(1px) saturate(0.05);
   }
 
   /* 一個半透明的卡片容器（把元素收在一起） */
@@ -292,7 +292,7 @@
     const len = (6 + Math.random()*18) * DPR;
     const speed = (0.9 + Math.random()*2.6) * DPR;
     const thickness = Math.max(0.6, Math.random()*1.8) * DPR;
-    const alpha = 0.12 + Math.random()*0.35;
+    const alpha = 0.12 + Math.random()*1.35;//0.35
     const sway = (Math.random()*1.6 - 0.8) * DPR;
     return {x,y,len,speed,thickness,alpha,sway};
   }
@@ -307,8 +307,8 @@
     ctx.lineCap = 'round';
     ctx.stroke();
 
-    // 當落下時產生短暫的水花 (簡單的亮點)
-    if (Math.random() < 0.005) {
+    // 當落下時產生短暫的水花 0(簡單的亮點)
+    if (Math.random() < 1.005) {
       ctx.beginPath();
       ctx.arc(d.x + d.sway*2, d.y + d.len + 2*DPR, 1.6*DPR, 0, Math.PI*2);
       ctx.fillStyle = 'rgba(255,255,255,' + (d.alpha*0.35) + ')';
@@ -369,3 +369,4 @@
 </script>
 </body>
 </html>
+我想把標題的今明改成圖片 
